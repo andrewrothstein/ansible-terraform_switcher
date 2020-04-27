@@ -1,0 +1,59 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for existing install...
+  become: yes
+  stat:
+    path: '{{ terraform_switcher_install_dir }}'
+  changed_when: False
+  register: terraform_switcher_binary
+- when: not terraform_switcher_binary.stat.exists
+  block:
+    - name: download...
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ terraform_switcher_url }}'
+        dest: /tmp/{{ terraform_switcher_archive }}
+        mode: 0644
+        checksum: '{{ terraform_switcher_checksum }}'
+    - name: mkdir install dir
+      become: yes
+      become_user: root
+      file:
+        path: '{{ terraform_switcher_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive...
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ terraform_switcher_archive }}
+        dest: '{{ terraform_switcher_install_dir }}'
+        creates: '{{ terraform_switcher_install_dir }}/terraform-switcher'
+  always:
+    - name: cleanup
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ terraform_switcher_archive }}
+        state: absent
+- name: link..
+  become: yes
+  become_user: root
+  with_items:
+    - terraform-switcher
+    - tfswitch
+  file:
+    src: '{{ terraform_switcher_install_dir }}/{{ item }}'
+    dest: '{{ terraform_switcher_parent_install_dir }}/bin/{{ item }}'
+    state: link
