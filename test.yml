@@ -5,9 +5,6 @@
   tasks:
   - command: tfswitch --version
     register: tfswitch_test_output
-  - debug:
+  - name: tfswitch --version
+    debug:
       msg: '{{ tfswitch_test_output.stdout }}'
-  - command: terraform-switcher --version
-    register: terraform_switcher_test_output
-  - debug:
-      msg: '{{ terraform_switcher_test_output.stdout }}'

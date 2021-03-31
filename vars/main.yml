@@ -2,6 +2,7 @@
 # vars file for terraform_switcher
 terraform_switcher_platform: '{{ terraform_switcher_os }}_{{ terraform_switcher_arch }}'
 terraform_switcher_archive: terraform-switcher_{{ terraform_switcher_ver }}_{{ terraform_switcher_platform }}.{{ terraform_switcher_archive_type | default("tar.gz") }}
+terraform_switcher_tmp_archive: /tmp/{{ terraform_switcher_archive }}
 terraform_switcher_url: '{{ terraform_switcher_mirror }}/{{ terraform_switcher_ver }}/{{ terraform_switcher_archive }}'
 terraform_switcher_checksum: '{{ terraform_switcher_checksums[terraform_switcher_ver][terraform_switcher_platform] }}'
 terraform_switcher_install_dir: '{{ terraform_switcher_parent_install_dir }}/terraform-switcher-{{ terraform_switcher_ver }}'

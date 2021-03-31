@@ -9,7 +9,7 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for existing install...
+- name: check for existing install in {{ terraform_switcher_install_dir }}
   become: yes
   stat:
     path: '{{ terraform_switcher_install_dir }}'
@@ -17,15 +17,15 @@
   register: terraform_switcher_binary
 - when: not terraform_switcher_binary.stat.exists
   block:
-    - name: download...
+    - name: downloading {{ terraform_switcher_url }}
       become: yes
       become_user: root
       get_url:
         url: '{{ terraform_switcher_url }}'
-        dest: /tmp/{{ terraform_switcher_archive }}
+        dest: '{{ terraform_switcher_tmp_archive }}'
         mode: 0644
         checksum: '{{ terraform_switcher_checksum }}'
-    - name: mkdir install dir
+    - name: mkdir {{ terraform_switcher_install_dir }}
       become: yes
       become_user: root
       file:
@@ -37,21 +37,20 @@
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{ terraform_switcher_archive }}
+        src: '{{ terraform_switcher_tmp_archive }}'
         dest: '{{ terraform_switcher_install_dir }}'
         creates: '{{ terraform_switcher_install_dir }}/terraform-switcher'
   always:
-    - name: cleanup
+    - name: rm {{ terraform_switcher_tmp_archive }}
       become: yes
       become_user: root
       file:
-        path: /tmp/{{ terraform_switcher_archive }}
+        path: '{{ terraform_switcher_tmp_archive }}'
         state: absent
 - name: link..
   become: yes
   become_user: root
   with_items:
-    - terraform-switcher
     - tfswitch
   file:
     src: '{{ terraform_switcher_install_dir }}/{{ item }}'
