@@ -1,6 +1,7 @@
 andrewrothstein.terraform_switcher
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-terraform_switcher.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-terraform_switcher)
+![Build Status](https://github.com/andrewrothstein/ansible-terraform_switcher/actions/workflows/build.yml/badge.svg)
+
 
 Installs [terraform_switcher](https://warrensbox.github.io/terraform-switcher/).
 
