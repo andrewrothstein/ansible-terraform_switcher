@@ -1,6 +1,6 @@
 ---
 # defaults file for terraform_switcher
-terraform_switcher_ver: '0.11.1071'
+terraform_switcher_ver: 0.13.1201
 terraform_switcher_os: linux
 terraform_switcher_arch: amd64
 terraform_switcher_parent_install_dir: /usr/local
@@ -28,3 +28,13 @@ terraform_switcher_checksums:
     linux_amd64: sha256:d5a568ca466bd2432c659e9fd005b20fbaba09b4ae800c08f28ae12646ded954
     # https://github.com/warrensbox/terraform-switcher/releases/download/0.11.1071/terraform-switcher_0.11.1071_windows_amd64.zip
     windows_amd64: sha256:d78d85df20f60f28ba3dce75e80680497bcdd36f1af407b38104eabe4696f997
+  # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_checksums.txt
+  '0.13.1201':
+    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_darwin_amd64.tar.gz
+    darwin_amd64: sha256:4b3ecef6708ddbf2115079f64fc2e9eec1f613f0230522ae051d06452541d1e8
+    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_linux_386.tar.gz
+    linux_386: sha256:07ad304ff95cf7118cf8477b05eb9e0c58bddec6a0f9fea4f3328a780fb621ff
+    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_linux_amd64.tar.gz
+    linux_amd64: sha256:abdddb6c409f560eaecbe13ff2b63d8f6090064061da2938c4c7d0d8605d8f57
+    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_windows_amd64.zip
+    windows_amd64: sha256:be3d7561bffa786d908e44a1e1c86f7f268fcf5607abdd50a53813b670654b90
