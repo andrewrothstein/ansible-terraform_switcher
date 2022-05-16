@@ -26,16 +26,21 @@ dl_ver() {
     local lchecksums="${DIR}/${checksums}"
     if [ ! -e $lchecksums ];
     then
-        wget -q -O $lchecksums $url
+        curl -sSLf -o $lchecksums $url
     fi
 
     printf "  # %s\n" $url
     printf "  '%s':\n" $ver
 
     dl $ver $lchecksums darwin amd64
+    dl $ver $lchecksums darwin arm64
     dl $ver $lchecksums linux 386
     dl $ver $lchecksums linux amd64
+    dl $ver $lchecksums linux arm64
+    dl $ver $lchecksums linux armv6
+    dl $ver $lchecksums linux armv7
+    dl $ver $lchecksums windows 386 zip
     dl $ver $lchecksums windows amd64 zip
 }
 
-dl_ver ${1:-0.13.1201}
+dl_ver ${1:-0.13.1221}
