@@ -1,7 +1,13 @@
 ---
 # defaults file for terraform_switcher
 terraform_switcher_ver: 0.13.1300
-terraform_switcher_os: linux
+terraform_switcher_arch_map:
+  386: 386
+  aarch64: arm64
+  arm64: arm64
+  armv6: armv6
+  armv7: armv7
+  x86_64: amd64
 terraform_switcher_arch: amd64
 terraform_switcher_parent_install_dir: /usr/local
 terraform_switcher_mirror: https://github.com/warrensbox/terraform-switcher/releases/download

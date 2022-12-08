@@ -1,5 +1,7 @@
 ---
 # vars file for terraform_switcher
+terraform_switcher_os: '{{ ansible_system | lower }}'
+terraform_switcher_arch: '{{ terraform_switcher_arch_map[ansible_architecture] }}'
 terraform_switcher_platform: '{{ terraform_switcher_os }}_{{ terraform_switcher_arch }}'
 terraform_switcher_archive: terraform-switcher_{{ terraform_switcher_ver }}_{{ terraform_switcher_platform }}.{{ terraform_switcher_archive_type | default("tar.gz") }}
 terraform_switcher_tmp_archive: /tmp/{{ terraform_switcher_archive }}
