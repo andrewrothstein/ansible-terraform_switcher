@@ -1,10 +1,10 @@
 ---
 - hosts: all
   roles:
-  - role: '{{ playbook_dir }}'
+    - role: '{{ playbook_dir }}'
   tasks:
-  - command: tfswitch --version
-    register: tfswitch_test_output
-  - name: tfswitch --version
-    debug:
-      msg: '{{ tfswitch_test_output.stdout }}'
+    - command: tfswitch --version
+      register: tfswitch_test_output
+    - name: tfswitch --version
+      debug:
+        msg: '{{ tfswitch_test_output.stdout }}'

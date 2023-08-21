@@ -1,6 +1,6 @@
 ---
 - include_role:
-    name: andrewrothstein.unarchive-deps
+    name: andrewrothstein.unarchivedeps
 - name: resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
@@ -34,7 +34,7 @@
         path: '{{ terraform_switcher_install_dir }}'
         state: directory
         mode: 0755
-    - name: unarchive...
+    - name: unarchiving {{ terraform_switcher_tmp_archive }}...
       become: true
       become_user: root
       unarchive:
