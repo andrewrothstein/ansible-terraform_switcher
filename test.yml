@@ -1,10 +1,13 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.terraform_switcher
+  hosts: all
   roles:
     - role: '{{ playbook_dir }}'
   tasks:
-    - command: tfswitch --version
+    - name: Executing 'tfswitch --version'
+      ansible.builtin.command: tfswitch --version
+      changed_when: false
       register: tfswitch_test_output
-    - name: tfswitch --version
-      debug:
+    - name: Output from 'tfswitch --version'
+      ansible.builtin.debug:
         msg: '{{ tfswitch_test_output.stdout }}'

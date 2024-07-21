@@ -1,106 +1,33 @@
 ---
 # defaults file for terraform_switcher
-terraform_switcher_ver: 0.13.1308
+terraform_switcher_ver: 1.2.2
 terraform_switcher_arch_map:
-  386: 386
   aarch64: arm64
   arm64: arm64
   armv6: armv6
   armv7: armv7
+  x86_32: 386
   x86_64: amd64
-terraform_switcher_arch: amd64
 terraform_switcher_parent_install_dir: /usr/local
 terraform_switcher_mirror: https://github.com/warrensbox/terraform-switcher/releases/download
 terraform_switcher_checksums:
-  # https://github.com/warrensbox/terraform-switcher/releases/download/0.8.832/terraform-switcher_0.8.832_checksums.txt
-  '0.8.832':
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.8.832/terraform-switcher_0.8.832_darwin_386.tar.gz
-    darwin_386: sha256:d94cbf4c9bcac052fb0b30fd06746116c0ccf86311663fbd3e770d1da8042d51
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.8.832/terraform-switcher_0.8.832_darwin_amd64.tar.gz
-    darwin_amd64: sha256:e9ec302dc93f53e5a16d89431d952e1bc251605c0fc529194246cd97442dbd0a
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.8.832/terraform-switcher_0.8.832_linux_386.tar.gz
-    linux_386: sha256:8546bc6d6093d5231c391c2b4ef90f7d16eb98c7f06b09dc10b24b3a6f1827f8
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.8.832/terraform-switcher_0.8.832_linux_amd64.tar.gz
-    linux_amd64: sha256:8588352b2e98a9e619278985dd986dfc837f5ac5d81310dfffc5e9d9eb7c946d
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.8.832/terraform-switcher_0.8.832_windows_amd64.zip
-    windows_amd64: sha256:9dbaa07db2c426199c8f136f5d29b88ec94db46879ccc43b2baa310857502ffc
-  # https://github.com/warrensbox/terraform-switcher/releases/download/0.11.1071/terraform-switcher_0.11.1071_checksums.txt
-  '0.11.1071':
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.11.1071/terraform-switcher_0.11.1071_darwin_amd64.tar.gz
-    darwin_amd64: sha256:da3ae9ab915ba00f17f3d7dd331f21a238b29f46b2bf179e9d27243d78aa202b
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.11.1071/terraform-switcher_0.11.1071_linux_386.tar.gz
-    linux_386: sha256:12e7eb790b4145432c6a0ea16b288ee58c54ccf9fb96af7b9d46d9462334f370
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.11.1071/terraform-switcher_0.11.1071_linux_amd64.tar.gz
-    linux_amd64: sha256:d5a568ca466bd2432c659e9fd005b20fbaba09b4ae800c08f28ae12646ded954
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.11.1071/terraform-switcher_0.11.1071_windows_amd64.zip
-    windows_amd64: sha256:d78d85df20f60f28ba3dce75e80680497bcdd36f1af407b38104eabe4696f997
-  # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_checksums.txt
-  '0.13.1201':
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_darwin_amd64.tar.gz
-    darwin_amd64: sha256:4b3ecef6708ddbf2115079f64fc2e9eec1f613f0230522ae051d06452541d1e8
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_linux_386.tar.gz
-    linux_386: sha256:07ad304ff95cf7118cf8477b05eb9e0c58bddec6a0f9fea4f3328a780fb621ff
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_linux_amd64.tar.gz
-    linux_amd64: sha256:abdddb6c409f560eaecbe13ff2b63d8f6090064061da2938c4c7d0d8605d8f57
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1201/terraform-switcher_0.13.1201_windows_amd64.zip
-    windows_amd64: sha256:be3d7561bffa786d908e44a1e1c86f7f268fcf5607abdd50a53813b670654b90
-  # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_checksums.txt
-  '0.13.1221':
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_darwin_amd64.tar.gz
-    darwin_amd64: sha256:a2539f6f048bbf9ebd4dce4f58b6b562810b43948b9cb0470cd276f3226fc0ff
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_darwin_arm64.tar.gz
-    darwin_arm64: sha256:9ea56a83e40f965674c44113d99a182331dfe1ab4168d14859243111881ce57e
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_linux_386.tar.gz
-    linux_386: sha256:b7f011e9cd7291861dad1fcf07c5dcaafe655a4123d7a87958b9cf2c5db61c84
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_linux_amd64.tar.gz
-    linux_amd64: sha256:a423ee13d5f7dc839f85a13d8db3107b59efca40d7e1dad7c5749201646187e4
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_linux_arm64.tar.gz
-    linux_arm64: sha256:d84e3462156ad5c9596b59cd7ec3641d870d2d06b6af216ce0abc4293a2f2ca6
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_linux_armv6.tar.gz
-    linux_armv6: sha256:d6b1a8d2b9b185a91fecb3d6663bfd4d383c63c134f04c0a3c2c92bbe954eb17
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_linux_armv7.tar.gz
-    linux_armv7: sha256:fb639927caa7fdde98b061a150a00c8ef927e8177f6aae2e4a5f8ab61597afb1
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_windows_386.zip
-    windows_386: sha256:a2b1b70607216ae7576493ed3af26beccf6c234c77e34217a595a0c0ef6e1854
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1221/terraform-switcher_0.13.1221_windows_amd64.zip
-    windows_amd64: sha256:2778b72b5b6bd51509f7fa8a357fb06306ddfdd0f42333c81dfa250102fd729a
-  # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_checksums.txt
-  '0.13.1300':
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_darwin_amd64.tar.gz
-    darwin_amd64: sha256:c5a4993f48f2960080eedc29600e307c01e90b55bddf59aa1492db2c3ee0b3bb
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_darwin_arm64.tar.gz
-    darwin_arm64: sha256:0d49d0bf43f47952329763cbf6d6a8a4cbcaf51c869648240f830575726607c8
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_linux_386.tar.gz
-    linux_386: sha256:f5d9258609e63b2c070a38f702794fe678633b7b5bc06bd94b8f10f2268dfb66
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_linux_amd64.tar.gz
-    linux_amd64: sha256:c66a2ad5ed7ea9a7b16047b28ce9a7de05086179e04f844e351b846ef09b85a2
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_linux_arm64.tar.gz
-    linux_arm64: sha256:e37f8914424fd4ecc1369ea226c1fe9dfe68c991b46c5c0531cb62c725a6604a
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_linux_armv6.tar.gz
-    linux_armv6: sha256:a2b51276f7d8c8d99fc28407d5f12d93e83adee565f40632589595d4a76d1f3f
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_linux_armv7.tar.gz
-    linux_armv7: sha256:0cb5efd8989fe49f30f4af68038108e646150bff6c506068ef8e295cb3aa4f1a
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_windows_386.zip
-    windows_386: sha256:e33249333d96c9aa68408589ccbbf6d1bc157df076011a168d9e09094b9facc5
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1300/terraform-switcher_0.13.1300_windows_amd64.zip
-    windows_amd64: sha256:4ae90e100b8a4c6dddd78cc65a582cd360587a551711a244852c59cf69b44508
-  # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_checksums.txt
-  '0.13.1308':
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_darwin_amd64.tar.gz
-    darwin_amd64: sha256:094af43f9d0b311fffc2588ae48e3fd8d9abd9cfb02562fd2451a6e792e19358
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_darwin_arm64.tar.gz
-    darwin_arm64: sha256:b0c89782854c6c794dae570a6e80d31ea62dcffc8be238a22d673cdd83894e2e
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_linux_386.tar.gz
-    linux_386: sha256:653ce88c99fdd5e17b14c5df99f5bcfad8ee4aa5ec23b66032286467ef71f8cb
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_linux_amd64.tar.gz
-    linux_amd64: sha256:bf35b90cc083509b44182aa79eb0fa39817d60cdb6883bf31cb5c3a0c49dc2dc
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_linux_arm64.tar.gz
-    linux_arm64: sha256:8fc4aa97b876705305d2d303d7254a4eb5428043d1252ab6f460e26b3d1e7ff7
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_linux_armv6.tar.gz
-    linux_armv6: sha256:e7386abc1c6a36859d29390a1282976b478a9bb5927a40e475c9abbf45a3d0ac
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_linux_armv7.tar.gz
-    linux_armv7: sha256:13ad35e96954ab8d5009ca19e47c487613a21ec00408a0df10a4fb70548d0503
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_windows_386.zip
-    windows_386: sha256:0fb7c7a5b58a6982b3216a0d1a1769577a2232fa3df5c795692c29b71e592bd6
-    # https://github.com/warrensbox/terraform-switcher/releases/download/0.13.1308/terraform-switcher_0.13.1308_windows_amd64.zip
-    windows_amd64: sha256:2c20cafbd6be81f6ed675522bbf05abd5e4b763ccefbd6bdd33e15a4604beb82
+  # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_checksums.txt
+  '1.2.2':
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_darwin_amd64.tar.gz
+    darwin_amd64: sha256:df60cc1c6dcfc82614b0e1a037b4273983b8b2adb215a3c32256cd4dafdf6ef8
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_darwin_arm64.tar.gz
+    darwin_arm64: sha256:55049c6459c0749320e04900e7d5474a6e40bb82144d0508aebda2659120ff94
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_linux_386.tar.gz
+    linux_386: sha256:9eea2905940b6a181496b96151b0c515a932d953a972027c0e459a935172e423
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_linux_amd64.tar.gz
+    linux_amd64: sha256:21b7c18b7c23c6365f395ae57402b60a111c1f3563bd4388e7a92cffae2c224b
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_linux_arm64.tar.gz
+    linux_arm64: sha256:71b5fbd78e9c23453a776567e0706e43312c5333f2391d8883ebcfca8c4dc4cc
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_linux_armv6.tar.gz
+    linux_armv6: sha256:30c91373c9fc15a3a6d29433c76147c2e109a6654557c28389d5ac62cbd52939
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_linux_armv7.tar.gz
+    linux_armv7: sha256:6aa1143018ca35603a843b5a8191145ae48b4de61da5a8695e873e5d85dc7461
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_windows_386.tar.gz
+    windows_386: sha256:40bd37acf0525c72ede3ce47dc213c025c4db095ee3db6fcbd3ab086b5426852
+    # https://github.com/warrensbox/terraform-switcher/releases/download/v1.2.2/terraform-switcher_v1.2.2_windows_amd64.tar.gz
+    windows_amd64: sha256:4977150c17f80c5a7dc0607a38c7375965e1cd6f83d1154879f5295481007920

@@ -1,8 +1,6 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,50 +9,54 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for existing install in {{ terraform_switcher_install_dir }}
+- name: Check for existing install in {{ terraform_switcher_install_dir }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ terraform_switcher_install_dir }}'
   changed_when: false
   register: terraform_switcher_binary
-- when: not terraform_switcher_binary.stat.exists
+- name: Downloading and installing terraform-switcher
+  when: not terraform_switcher_binary.stat.exists
   block:
-    - name: downloading {{ terraform_switcher_url }}
+    - name: Downloading {{ terraform_switcher_url }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ terraform_switcher_url }}'
         dest: '{{ terraform_switcher_tmp_archive }}'
-        mode: 0644
+        mode: '644'
         checksum: '{{ terraform_switcher_checksum }}'
-    - name: mkdir {{ terraform_switcher_install_dir }}
+    - name: Mkdir {{ terraform_switcher_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ terraform_switcher_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchiving {{ terraform_switcher_tmp_archive }}...
+        mode: '755'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Unarchiving {{ terraform_switcher_tmp_archive }}...
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ terraform_switcher_tmp_archive }}'
         dest: '{{ terraform_switcher_install_dir }}'
         creates: '{{ terraform_switcher_install_dir }}/terraform-switcher'
   always:
-    - name: rm {{ terraform_switcher_tmp_archive }}
+    - name: Rm {{ terraform_switcher_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ terraform_switcher_tmp_archive }}'
         state: absent
-- name: link..
+- name: Linking..
   become: true
   become_user: root
   with_items:
     - tfswitch
-  file:
+  ansible.builtin.file:
     src: '{{ terraform_switcher_install_dir }}/{{ item }}'
     dest: '{{ terraform_switcher_parent_install_dir }}/bin/{{ item }}'
     state: link
